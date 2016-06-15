@@ -1,0 +1,1 @@
+{"bindings":[{"authLevel":"function","name":"req","type":"httpTrigger","direction":"in"},{"name":"res","type":"http","direction":"out"}],"disabled":false}
