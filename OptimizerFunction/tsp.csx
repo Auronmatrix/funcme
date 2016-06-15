@@ -108,7 +108,7 @@ using System.IO;
             distances[5, 10] = 2.0;
             distances[5, 11] = 5.0;
             distances[5, 12] = 1.0;
-            distances[5, 13] =;
+            distances[5, 13] = 2.0;
             distances[5, 14] = 2.0;
 
             distances[6, 0] = 5.0;
