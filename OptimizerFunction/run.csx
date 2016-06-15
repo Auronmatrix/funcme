@@ -1,5 +1,6 @@
 #r "System.Web"
 #r "System.Core"
+#load "optimizer.csx"
 
 using System.Dynamic;
 using System.Net;
@@ -28,9 +29,12 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
     
      log.Info($"Checking for username {parameters.user_name}");
     
+    var optimizer = new Optimizer();
+    var result = optimizer.StartAnnealing();
+
     // Set name to query string or body data
     // name = name ?? data?.User_Name;
-   var responseMsg = new { text = "This is a response message to " + parameters.user_name };
+   var responseMsg = new { text = $"hey {parameters.user_name} the optimization result was {result}" };
      return parameters.user_name == null
          ? req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
         : req.CreateResponse(HttpStatusCode.OK, responseMsg );
