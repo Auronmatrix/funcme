@@ -1,10 +1,12 @@
 #r "System.Web"
 #r "System.Core"
-#load "optimizer.csx"
+#load "tsp.csx"
 
 using System.Dynamic;
 using System.Net;
 using System.Web;
+using System.Collections.Generic;
+using System.IO;
 
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 {
@@ -28,10 +30,24 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
             }
     
      log.Info($"Checking for username {parameters.user_name}");
-    
-    var optimizer = new Optimizer();
-    var result = optimizer.StartAnnealing();
+     
+     var result = "";
 
+     TravellingSalesmanProblem problem = new TravellingSalesmanProblem();
+            problem.FilePath = "Cities.txt";
+            problem.Anneal();
+
+            string path = "";
+            for (int i = 0; i < problem.CitiesOrder.Count - 1; i++)
+            {
+                path += problem.CitiesOrder[i] + " -> ";
+            }
+            path += problem.CitiesOrder[problem.CitiesOrder.Count - 1];
+
+            log.Info("Shortest Route: " + path);
+            result = problem.ShortestDistance.ToString();
+            log.Info("The shortest distance is: " + optimizationResult);
+          
     // Set name to query string or body data
     // name = name ?? data?.User_Name;
    var responseMsg = new { text = $"hey {parameters.user_name} the optimization result was {result}" };
