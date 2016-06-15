@@ -33,10 +33,9 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
      
      var result = "";
 
-     TravellingSalesmanProblem problem = new TravellingSalesmanProblem();
-            problem.FilePath = "cities.txt";
+            TravellingSalesmanProblem problem = new TravellingSalesmanProblem();
             problem.Anneal();
-
+            
             string path = "";
             for (int i = 0; i < problem.CitiesOrder.Count - 1; i++)
             {
