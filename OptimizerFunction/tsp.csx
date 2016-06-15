@@ -5,7 +5,7 @@ using System.IO;
     public class TravellingSalesmanProblem
     {
         private List<int> nextOrder = new List<int>();
-        private double[,] distances;
+        private double[15,15] distances;
         private Random random = new Random();
 
         public double ShortestDistance { get; set; } = 0;
@@ -255,7 +255,10 @@ using System.IO;
             distances[14, 13] = 5.0;
             distances[14, 14] = 0.0;
 
-
+             for (var k = 0; k < 14; k++)
+            {
+                CitiesOrder.Add(k);
+            }
         }
 
         private double GetTotalDistance(List<int> order)
