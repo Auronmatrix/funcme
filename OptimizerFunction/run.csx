@@ -34,7 +34,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
      var result = "";
 
      TravellingSalesmanProblem problem = new TravellingSalesmanProblem();
-            problem.FilePath = "Cities.txt";
+            problem.FilePath = "cities.txt";
             problem.Anneal();
 
             string path = "";
