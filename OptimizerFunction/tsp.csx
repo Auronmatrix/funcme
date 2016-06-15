@@ -5,7 +5,7 @@ using System.IO;
     public class TravellingSalesmanProblem
     {
         private List<int> nextOrder = new List<int>();
-        private double[15,15] distances;
+        private double[,] distances;
         private Random random = new Random();
 
         public double ShortestDistance { get; set; } = 0;
