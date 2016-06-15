@@ -49,7 +49,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
           
     // Set name to query string or body data
     // name = name ?? data?.User_Name;
-   var responseMsg = new { text = $"hey {parameters.user_name} the optimization result for distance Matrix (https://s31.postimg.org/ve1051yjf/Capture.png) was {result} with a path of {path}" };
+   var responseMsg = new { text = $"hey {parameters.user_name} the optimization result for distance Matrix https://s31.postimg.org/ve1051yjf/Capture.png was {result} with a path of {path}" };
      return parameters.user_name == null
          ? req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
         : req.CreateResponse(HttpStatusCode.OK, responseMsg );
