@@ -46,7 +46,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 
             log.Info("Shortest Route: " + path);
             result = problem.ShortestDistance.ToString();
-            log.Info("The shortest distance is: " + optimizationResult);
+            log.Info("The shortest distance is: " + result);
           
     // Set name to query string or body data
     // name = name ?? data?.User_Name;

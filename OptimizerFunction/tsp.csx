@@ -10,7 +10,7 @@ using System.IO;
 
         public double ShortestDistance { get; set; } = 0;
 
-        private string FilePath { get; set; }
+        public string FilePath { get; set; }
 
         public List<int> CitiesOrder { get; set; } = new List<int>();
         
